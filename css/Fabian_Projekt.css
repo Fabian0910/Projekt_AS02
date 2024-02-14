@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+  font-size: 100px;
+  color: blue;
+}
+
+.Fernseh-Bilder {
+  text-align: center; /* Zentriert den Inhalt innerhalb des Containers */
+}
+
+.Fernseh-Bilder img {
+  max-width: 300px; /* Maximale Breite der Bilder */
+  height: auto; /* Automatische Höhe beibehalten */
+  display: block; /* Um sicherzustellen, dass die Bilder nicht aneinander anliegen */
+  margin: 20px auto; /* Abstand oben und unten, sowie automatische Seitenränder */
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid black;
+  z-index: 9999;
+}
+
+
+
+      
