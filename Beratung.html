@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernseher-Kaufberater</title>
+    <style>
+        /* Additional CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .welcome-container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+            flex-basis: 30%; /* 30% width for each image container */
+        }
+
+        .image-container img {
+            width: 100%; /* Make the images fill the container */
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .gallery-text {
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="Beratung.html">Beratung</a>
+</div>
+
+<div class="header">
+    <h1>Fernseher-Kaufberater</h1>
+</div>
+
+<div class="welcome-container">
+    <h2>Willkommen auf der Seite von Fabian.</h2>
+    <p>Hier sehen Sie die drei Top Fernsehmodelle des Jahres 2023. Schauen Sie sich in Ruhe die 3 Modelle an und überlegen Sie für sich, was Sie eigentlich brauchen.</p>
+</div>
+
+<div class="content">
+    <div class="image-container">
+        <img src="Bilder/LG_OLED_G3.jpg" alt="TV1" class="image" onclick="openPopup(0)">
+        <p>Der LG OLED G3 überzeugt durch herausragende Bildqualität dank OLED-Technologie, die perfekte Schwarzwerte und lebendige Farben liefert...</p>
+    </div>
+    <div class="image-container">
+        <img src="Bilder/panasonic_mzw2004_lifestyle.jpg" alt="TV2" class="image" onclick="openPopup(1)">
+        <p>Der Panasonic MZW 2004 gilt zweifellos als einer der besten Fernseher und verdient den Titel des zweitbesten aufgrund seiner beeindruckenden Bildqualität durch OLED-Technologie, hochwertigen Sound, eleganten Design und hochwertigen Verarbeitung...</p>
+    </div>
+    <div class="image-container">
+        <img src="Bilder/sony a95l.jpeg" alt="TV3" class="image" onclick="openPopup(2)">
+        <p>Der Sony A95l verdient den Titel des drittbesten Fernsehers aufgrund seiner herausragenden Bild- und Soundqualität dank innovativer OLED-Technologie. Sein elegantes Design mit einem minimalistischen Rahmen fügt sich perfekt in jedes Wohnzimmer ein...</p>
+    </div>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-button" onclick="closePopup()">&times;</span>
+        <img id="popup-image" src="" alt="" style="max-width: 80%; max-height: 80%;">
+        <p id="popup-text" class="gallery-text"></p>
+    </div>
+</div>
+
+<div class="footer">
+    <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" style="color: white;">Impressum</a>
+</div>
+
+<script>
+    var images = [
+        "Bilder/LG_OLED_G3.jpg",
+        "Bilder/panasonic_mzw2004_lifestyle.jpg",
+        "Bilder/sony a95l.jpeg"
+    ];
+    var texts = [
+        "Der LG OLED G3 überzeugt durch herausragende Bildqualität dank OLED-Technologie, die perfekte Schwarzwerte und lebendige Farben liefert. Mit einer beeindruckenden 4K-Auflösung garantiert er gestochen scharfe Bilder mit feinsten Details. Sein schlankes Design mit ultradünnem Rahmen fügt sich elegant ins Wohnzimmer ein. Zudem bietet er umfangreiche Smart-TV-Funktionen für vielfältiges Entertainment und ist dank HDMI 2.1 zukunftssicher für kommende Technologien. All diese Eigenschaften machen den LG OLED G3 zweifellos zum besten Fernseher, der ein unvergleichliches Seherlebnis bietet.",
+        "Der Panasonic MZW 2004 gilt zweifellos als einer der besten Fernseher und verdient den Titel des zweitbesten aufgrund seiner beeindruckenden Bildqualität durch OLED-Technologie, hochwertigen Sound, eleganten Design und hochwertigen Verarbeitung. Seine Smart-TV-Funktionen ermöglichen ein nahtloses Streaming und einfache Navigation durch Inhalte. Zuverlässigkeit und Langlebigkeit sind weitere herausragende Merkmale dieses Fernsehers. Obwohl er vielleicht nicht ganz die Spitzenposition des LG OLED G3 erreicht, bietet der Panasonic MZW 2004 dennoch ein herausragendes Entertainment-Erlebnis und ist eine erstklassige Wahl für anspruchsvolle Nutzer.",
+        "Der Sony A95l verdient den Titel des drittbesten Fernsehers aufgrund seiner herausragenden Bild- und Soundqualität dank innovativer OLED-Technologie. Sein elegantes Design mit einem minimalistischen Rahmen fügt sich perfekt in jedes Wohnzimmer ein. Die integrierten Smart-TV-Funktionen ermöglichen ein nahtloses Streaming und eine einfache Navigation durch Inhalte. Sony steht für Zuverlässigkeit und Qualität, was den A95l zu einer vertrauenswürdigen Investition für langfristiges Entertainment macht. Obwohl er möglicherweise nicht ganz die Spitzenposition anderer Modelle wie dem LG OLED G3 oder dem Panasonic MZW 2004 erreicht, bietet der Sony A95l dennoch ein herausragendes Seherlebnis und ist eine erstklassige Wahl für anspruchsvolle Nutzer."
+    ];
+
+    function openPopup(index) {
+        var popupImage = document.getElementById('popup-image');
+        var popupText = document.getElementById('popup-text');
+        
+        popupImage.src = images[index];
+        popupImage.alt = 'TV' + (index + 1);
+        popupText.textContent = texts[index];
+
+        document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
