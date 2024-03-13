@@ -1,40 +1,76 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fernseher-Kaufberater</title>
-    <link rel="stylesheet" href="css/Fabian_Projekt.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Willkommen</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.container {
+    text-align: center;
+    margin-top: 70px; /* Adjust according to navbar height */
+}
+
+.container h1 {
+    font-size: 36px;
+}
+
+.container p {
+    font-size: 18px;
+}
+
+ /* Footer styles */
+ .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+</style>
 </head>
 <body>
 
-<div class="header">
-    <h1>Fernseher-Kaufberater</h1>
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="Beratung.html">Beratung</a>
 </div>
 
-<div class="content">
-    <div class="image-container">
-        <img src="Bilder/LG_OLED_G3.jpg" alt="TV1" class="image" onclick="openPopup(0)">
-        <p>Informationen über Fernseher 1</p>
-    </div>
-    <div class="image-container">
-        <img src="Bilder/panasonic_mzw2004_lifestyle.jpg" alt="TV2" class="image" onclick="openPopup(1)">
-        <p>Informationen über Fernseher 2</p>
-    </div>
-    <div class="image-container">
-        <img src="Bilder/sony a95l.jpeg" alt="TV3" class="image" onclick="openPopup(2)">
-        <p>Informationen über Fernseher 3</p>
-    </div>
+<div class="container">
+    <h1>Willkommen auf dieser Seite</h1>
+    <p>Diese Seite wurde von Fabian Wilke erstellt aufgrund eines WEB-Projektes. Er hat sich viel Mühe gegeben und hofft, dass Ihnen die Seite gefällt. Viel Spaß und auch viel Freude mit einem neuen Fernseher.</p>
 </div>
 
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <span class="close-button">&times;</span>
-        <div class="gallery"></div>
-        <p class="gallery-text">Text neben der Galerie</p>
-    </div>
+<div class="footer">
+    <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" style="color: white;">Impressum</a>
 </div>
 
-<script src="JavaScript/Fabian_Projekt.js"></script>
 </body>
 </html>
+
